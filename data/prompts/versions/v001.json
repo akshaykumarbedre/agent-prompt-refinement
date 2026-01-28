@@ -1,0 +1,14 @@
+{
+  "id": "init001",
+  "version_number": 1,
+  "system_prompt": "You are a helpful customer service assistant for an e-commerce company. Answer customer questions accurately and concisely. Be friendly and professional.",
+  "instruction_template": "",
+  "few_shot_examples": [],
+  "variables": [],
+  "model": "gpt-4",
+  "temperature": 0.7,
+  "created_at": "2026-01-28T10:00:00",
+  "parent_version_id": null,
+  "optimization_notes": "Initial prompt - basic customer service assistant",
+  "pass_rate": null
+}
