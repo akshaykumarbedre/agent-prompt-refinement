@@ -1,0 +1,385 @@
+{
+  "run_id": "fbde4fcf",
+  "prompt_version_id": "c5e01c9d",
+  "total_cases": 10,
+  "passed": 0,
+  "failed": 10,
+  "pass_rate": 0.0,
+  "avg_score": 0.0,
+  "failure_breakdown": {
+    "invalid_format": 10
+  },
+  "timestamp": "2026-01-28T15:11:54.321222",
+  "results": [
+    {
+      "id": "74e936bc",
+      "test_case_id": "tc_001",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "What are your business hours?",
+      "expected_output": "We are open Monday to Friday, 9 AM to 5 PM EST.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:32.113957",
+      "failure_category": null
+    },
+    {
+      "id": "e23f2fc2",
+      "test_case_id": "tc_002",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "How do I cancel my order?",
+      "expected_output": "To cancel your order, please contact our customer support at 1-800-123-4567 within 24 hours of placing the order.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:34.460669",
+      "failure_category": null
+    },
+    {
+      "id": "97331636",
+      "test_case_id": "tc_003",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "What is your return policy?",
+      "expected_output": "You can return any item within 30 days of purchase for a full refund. Items must be in original packaging.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is completely missing, which results in a failure in all evaluation dimensions."
+          }
+        },
+        "feedback": "The actual output is completely missing, which results in a failure in all evaluation dimensions."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:36.911059",
+      "failure_category": null
+    },
+    {
+      "id": "f6301d78",
+      "test_case_id": "tc_004",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "Do you ship internationally?",
+      "expected_output": "Yes, we ship to over 50 countries. International shipping takes 7-14 business days.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:39.212291",
+      "failure_category": null
+    },
+    {
+      "id": "bbd3ce71",
+      "test_case_id": "tc_005",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "How do I track my order?",
+      "expected_output": "You can track your order using the tracking number sent to your email, or log into your account and view order status.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:42.236995",
+      "failure_category": null
+    },
+    {
+      "id": "3acec422",
+      "test_case_id": "tc_006",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "What payment methods do you accept?",
+      "expected_output": "We accept Visa, MasterCard, American Express, PayPal, and Apple Pay.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is completely missing, which results in a failure in all evaluation dimensions."
+          }
+        },
+        "feedback": "The actual output is completely missing, which results in a failure in all evaluation dimensions."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:44.895166",
+      "failure_category": null
+    },
+    {
+      "id": "5fee5ab0",
+      "test_case_id": "tc_007",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "Can I change my shipping address after ordering?",
+      "expected_output": "You can change your shipping address within 2 hours of placing your order by contacting customer support.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:47.354241",
+      "failure_category": null
+    },
+    {
+      "id": "c002a467",
+      "test_case_id": "tc_008",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "What if my item arrives damaged?",
+      "expected_output": "If your item arrives damaged, please contact us within 48 hours with photos of the damage. We will send a replacement or issue a full refund.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, resulting in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, resulting in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:50.110336",
+      "failure_category": null
+    },
+    {
+      "id": "7bfceaaa",
+      "test_case_id": "tc_009",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "Do you offer gift wrapping?",
+      "expected_output": "Yes, we offer gift wrapping for $5 per item. You can select this option at checkout.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+          }
+        },
+        "feedback": "The actual output is missing entirely, which results in a complete failure in correctness, format compliance, and behavior alignment."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:51.859225",
+      "failure_category": null
+    },
+    {
+      "id": "0189e707",
+      "test_case_id": "tc_010",
+      "prompt_version_id": "c5e01c9d",
+      "input_text": "How do I apply a promo code?",
+      "expected_output": "Enter your promo code in the 'Discount Code' field at checkout and click 'Apply'. The discount will be reflected in your total.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "failure_category": "invalid_format",
+          "raw_response": {
+            "correctness": 0,
+            "format_compliance": 0,
+            "behavior_alignment": 0,
+            "aggregate_score": 0,
+            "passed": false,
+            "failure_category": "invalid_format",
+            "feedback": "The actual output is completely missing, which results in a failure to provide any information or follow the expected format."
+          }
+        },
+        "feedback": "The actual output is completely missing, which results in a failure to provide any information or follow the expected format."
+      },
+      "passed": false,
+      "latency_ms": 0,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:11:54.315642",
+      "failure_category": null
+    }
+  ]
+}

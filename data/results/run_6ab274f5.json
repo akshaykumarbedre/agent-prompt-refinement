@@ -1,0 +1,459 @@
+{
+  "run_id": "6ab274f5",
+  "prompt_version_id": "init001",
+  "total_cases": 12,
+  "passed": 10,
+  "failed": 2,
+  "pass_rate": 0.8333333333333334,
+  "avg_score": 8.138333333333334,
+  "failure_breakdown": {
+    "factual_error": 2
+  },
+  "timestamp": "2026-01-28T15:16:57.736259",
+  "results": [
+    {
+      "id": "e510d978",
+      "test_case_id": "tc_001",
+      "prompt_version_id": "init001",
+      "input_text": "What are your business hours?",
+      "expected_output": "We are open Monday to Friday, 9 AM to 5 PM EST.",
+      "actual_output": "Our business hours are Monday through Friday, from 9 AM to 5 PM (local time). If you have any questions or need assistance outside of these hours, feel free to reach out via email, and we will get back to you as soon as possible.",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 8.0,
+          "format_compliance": 9.0,
+          "behavior_alignment": 8.0
+        },
+        "aggregate_score": 8.33,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 8,
+            "format_compliance": 9,
+            "behavior_alignment": 8,
+            "aggregate_score": 8.33,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the same information as the expected output with minor differences in wording and additional information about email assistance. The format is mostly compliant, and the tone is appropriate, though slightly more verbose than necessary."
+          }
+        },
+        "feedback": "The actual output conveys the same information as the expected output with minor differences in wording and additional information about email assistance. The format is mostly compliant, and the tone is appropriate, though slightly more verbose than necessary."
+      },
+      "passed": true,
+      "latency_ms": 2711,
+      "tokens_used": 97,
+      "timestamp": "2026-01-28T15:16:22.607063",
+      "failure_category": null
+    },
+    {
+      "id": "ccb580f5",
+      "test_case_id": "tc_002",
+      "prompt_version_id": "init001",
+      "input_text": "How do I cancel my order?",
+      "expected_output": "To cancel your order, please contact our customer support at 1-800-123-4567 within 24 hours of placing the order.",
+      "actual_output": "To cancel your order, please follow these steps:\n\n1. Log in to your account on our website.\n2. Go to the \"Order History\" or \"My Orders\" section.\n3. Find the order you wish to cancel and click on it.\n4. Look for the \"Cancel Order\" option and follow the prompts.\n\nIf your order has already been processed or shipped, you may not be able to cancel it directly. In that case, please contact our customer service team for assistance. We're here to help!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 6.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 8.0
+        },
+        "aggregate_score": 8.0,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 6,
+            "format_compliance": 10,
+            "behavior_alignment": 8,
+            "aggregate_score": 8,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output provides a detailed process for canceling an order, which is partially correct but diverges from the expected response that emphasizes contacting customer support directly. The format is clear and well-structured, and the tone is helpful and supportive, aligning well with expected behavior."
+          }
+        },
+        "feedback": "The actual output provides a detailed process for canceling an order, which is partially correct but diverges from the expected response that emphasizes contacting customer support directly. The format is clear and well-structured, and the tone is helpful and supportive, aligning well with expected behavior."
+      },
+      "passed": true,
+      "latency_ms": 2939,
+      "tokens_used": 149,
+      "timestamp": "2026-01-28T15:16:25.674771",
+      "failure_category": null
+    },
+    {
+      "id": "9590ef45",
+      "test_case_id": "tc_003",
+      "prompt_version_id": "init001",
+      "input_text": "What is your return policy?",
+      "expected_output": "You can return any item within 30 days of purchase for a full refund. Items must be in original packaging.",
+      "actual_output": "Our return policy allows you to return most items within 30 days of receiving your order for a full refund or exchange. Items must be in their original condition, unused, and with all original packaging and tags attached. Some exceptions may apply, such as final sale items or personalized products. Please visit our website or contact customer service for more specific details regarding your order. If you need assistance with a return, feel free to ask!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 7.0,
+          "format_compliance": 8.0,
+          "behavior_alignment": 9.0
+        },
+        "aggregate_score": 8.0,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 7,
+            "format_compliance": 8,
+            "behavior_alignment": 9,
+            "aggregate_score": 8,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the same essential information about the return policy but includes additional details and exceptions that were not present in the expected output. The format is mostly compliant, and the tone is friendly and helpful, aligning well with expected behavior."
+          }
+        },
+        "feedback": "The actual output conveys the same essential information about the return policy but includes additional details and exceptions that were not present in the expected output. The format is mostly compliant, and the tone is friendly and helpful, aligning well with expected behavior."
+      },
+      "passed": true,
+      "latency_ms": 2466,
+      "tokens_used": 130,
+      "timestamp": "2026-01-28T15:16:28.541897",
+      "failure_category": null
+    },
+    {
+      "id": "9025332d",
+      "test_case_id": "tc_004",
+      "prompt_version_id": "init001",
+      "input_text": "Do you ship internationally?",
+      "expected_output": "Yes, we ship to over 50 countries. International shipping takes 7-14 business days.",
+      "actual_output": "Yes, we do offer international shipping! However, availability may vary depending on the destination. Please check the shipping options at checkout or contact our customer service for more specific information regarding your location. If you have any other questions, feel free to ask!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 7.0,
+          "format_compliance": 9.0,
+          "behavior_alignment": 8.0
+        },
+        "aggregate_score": 8.0,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 7,
+            "format_compliance": 9,
+            "behavior_alignment": 8,
+            "aggregate_score": 8,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the correct information about international shipping but adds extra details about availability and customer service, which slightly deviates from the expected response. The format is good, and the tone is friendly and helpful, aligning well with expected behavior."
+          }
+        },
+        "feedback": "The actual output conveys the correct information about international shipping but adds extra details about availability and customer service, which slightly deviates from the expected response. The format is good, and the tone is friendly and helpful, aligning well with expected behavior."
+      },
+      "passed": true,
+      "latency_ms": 1613,
+      "tokens_used": 93,
+      "timestamp": "2026-01-28T15:16:32.235181",
+      "failure_category": null
+    },
+    {
+      "id": "56e37463",
+      "test_case_id": "tc_005",
+      "prompt_version_id": "init001",
+      "input_text": "How do I track my order?",
+      "expected_output": "You can track your order using the tracking number sent to your email, or log into your account and view order status.",
+      "actual_output": "To track your order, please follow these steps:\n\n1. **Log in to your account** on our website.\n2. Navigate to the **\"Order History\"** section.\n3. Select the order you wish to track.\n4. Click on the tracking link provided to see the current status of your shipment.\n\nIf you placed your order as a guest, you can track it using the tracking number sent to your email confirmation. Just enter the tracking number on our website\u2019s order tracking page.\n\nIf you need any further assistance, feel free to ask!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 9.0,
+          "format_compliance": 8.0,
+          "behavior_alignment": 9.0
+        },
+        "aggregate_score": 8.67,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 9,
+            "format_compliance": 8,
+            "behavior_alignment": 9,
+            "aggregate_score": 8.67,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the same information as the expected output with minor additional details. The format is mostly compliant, though the use of bullet points is a slight deviation from the expected format. The tone and structure align well with expected behavior."
+          }
+        },
+        "feedback": "The actual output conveys the same information as the expected output with minor additional details. The format is mostly compliant, though the use of bullet points is a slight deviation from the expected format. The tone and structure align well with expected behavior."
+      },
+      "passed": true,
+      "latency_ms": 3770,
+      "tokens_used": 156,
+      "timestamp": "2026-01-28T15:16:35.709780",
+      "failure_category": null
+    },
+    {
+      "id": "b3e7fac4",
+      "test_case_id": "tc_006",
+      "prompt_version_id": "init001",
+      "input_text": "What payment methods do you accept?",
+      "expected_output": "We accept Visa, MasterCard, American Express, PayPal, and Apple Pay.",
+      "actual_output": "We accept a variety of payment methods, including credit and debit cards (Visa, MasterCard, American Express, Discover), PayPal, and Apple Pay. If you have any specific payment method in mind, feel free to ask!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 8.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 9.0
+        },
+        "aggregate_score": 9.0,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 8,
+            "format_compliance": 10,
+            "behavior_alignment": 9,
+            "aggregate_score": 9,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the same information as the expected output but includes additional details about Discover and invites further questions, which slightly alters the focus. The format is perfect, and the tone is friendly and helpful."
+          }
+        },
+        "feedback": "The actual output conveys the same information as the expected output but includes additional details about Discover and invites further questions, which slightly alters the focus. The format is perfect, and the tone is friendly and helpful."
+      },
+      "passed": true,
+      "latency_ms": 1682,
+      "tokens_used": 91,
+      "timestamp": "2026-01-28T15:16:38.783185",
+      "failure_category": null
+    },
+    {
+      "id": "04ce3a40",
+      "test_case_id": "tc_007",
+      "prompt_version_id": "init001",
+      "input_text": "Can I change my shipping address after ordering?",
+      "expected_output": "You can change your shipping address within 2 hours of placing your order by contacting customer support.",
+      "actual_output": "Yes, you can change your shipping address after placing an order, but it must be done quickly. Please contact our customer service team as soon as possible with your order details, and we'll do our best to accommodate your request before the order is processed for shipping.",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 7.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 8.0
+        },
+        "aggregate_score": 8.33,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 7,
+            "format_compliance": 10,
+            "behavior_alignment": 8,
+            "aggregate_score": 8.33,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the correct information but lacks the specific time frame of 2 hours mentioned in the expected output. The format is perfect, and the tone is appropriate, though slightly more verbose than necessary."
+          }
+        },
+        "feedback": "The actual output conveys the correct information but lacks the specific time frame of 2 hours mentioned in the expected output. The format is perfect, and the tone is appropriate, though slightly more verbose than necessary."
+      },
+      "passed": true,
+      "latency_ms": 2061,
+      "tokens_used": 99,
+      "timestamp": "2026-01-28T15:16:42.084549",
+      "failure_category": null
+    },
+    {
+      "id": "ff841f9a",
+      "test_case_id": "tc_008",
+      "prompt_version_id": "init001",
+      "input_text": "What if my item arrives damaged?",
+      "expected_output": "If your item arrives damaged, please contact us within 48 hours with photos of the damage. We will send a replacement or issue a full refund.",
+      "actual_output": "If your item arrives damaged, please reach out to our customer service team as soon as possible. You can provide details about the damage and, if possible, include photos. We will assist you with the return or replacement process. Your satisfaction is our priority!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 8.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 9.0
+        },
+        "aggregate_score": 9.0,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 8,
+            "format_compliance": 10,
+            "behavior_alignment": 9,
+            "aggregate_score": 9,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the same essential information as the expected output, with minor differences in wording and emphasis. The format is perfect, and the tone is friendly and customer-oriented, aligning well with expected behavior."
+          }
+        },
+        "feedback": "The actual output conveys the same essential information as the expected output, with minor differences in wording and emphasis. The format is perfect, and the tone is friendly and customer-oriented, aligning well with expected behavior."
+      },
+      "passed": true,
+      "latency_ms": 2390,
+      "tokens_used": 96,
+      "timestamp": "2026-01-28T15:16:44.723051",
+      "failure_category": null
+    },
+    {
+      "id": "0ec7b177",
+      "test_case_id": "tc_009",
+      "prompt_version_id": "init001",
+      "input_text": "Do you offer gift wrapping?",
+      "expected_output": "Yes, we offer gift wrapping for $5 per item. You can select this option at checkout.",
+      "actual_output": "Yes, we do offer gift wrapping! You can select the gift wrapping option at checkout for an additional fee. If you have any specific requests or need assistance, feel free to let us know!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 9.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 9.0
+        },
+        "aggregate_score": 9.33,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 9,
+            "format_compliance": 10,
+            "behavior_alignment": 9,
+            "aggregate_score": 9.33,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output conveys the same information as the expected output with minor differences in wording and additional helpful information. The format is perfect, and the tone is friendly and inviting, aligning well with expected behavior."
+          }
+        },
+        "feedback": "The actual output conveys the same information as the expected output with minor differences in wording and additional helpful information. The format is perfect, and the tone is friendly and inviting, aligning well with expected behavior."
+      },
+      "passed": true,
+      "latency_ms": 2330,
+      "tokens_used": 83,
+      "timestamp": "2026-01-28T15:16:47.180799",
+      "failure_category": null
+    },
+    {
+      "id": "16d18450",
+      "test_case_id": "tc_010",
+      "prompt_version_id": "init001",
+      "input_text": "How do I apply a promo code?",
+      "expected_output": "Enter your promo code in the 'Discount Code' field at checkout and click 'Apply'. The discount will be reflected in your total.",
+      "actual_output": "To apply a promo code, follow these steps:\n\n1. **Add Items to Your Cart**: Browse our site and select the items you want to purchase. Click on \u201cAdd to Cart\u201d for each item.\n\n2. **View Your Cart**: Once you\u2019re ready to check out, click on the shopping cart icon in the upper right corner of the page.\n\n3. **Proceed to Checkout**: Click on the \u201cCheckout\u201d button.\n\n4. **Enter Promo Code**: During the checkout process, look for a field labeled \u201cPromo Code\u201d or \u201cDiscount Code.\u201d Enter your code there.\n\n5. **Apply the Code**: After entering the code, click on the \u201cApply\u201d button to see the discount reflected in your total.\n\n6. **Complete Your Purchase**: Continue with the checkout process by entering your shipping and payment information.\n\nIf you encounter any issues, feel free to reach out for assistance!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 7.0,
+          "format_compliance": 8.0,
+          "behavior_alignment": 9.0
+        },
+        "aggregate_score": 8.0,
+        "passed": true,
+        "details": {
+          "failure_category": "none",
+          "raw_response": {
+            "correctness": 7,
+            "format_compliance": 8,
+            "behavior_alignment": 9,
+            "aggregate_score": 8,
+            "passed": true,
+            "failure_category": "none",
+            "feedback": "The actual output provides a correct and detailed process for applying a promo code, which aligns well with the expected output, though it includes additional steps that were not requested. The format is clear and structured, and the tone is helpful and informative."
+          }
+        },
+        "feedback": "The actual output provides a correct and detailed process for applying a promo code, which aligns well with the expected output, though it includes additional steps that were not requested. The format is clear and structured, and the tone is helpful and informative."
+      },
+      "passed": true,
+      "latency_ms": 5713,
+      "tokens_used": 232,
+      "timestamp": "2026-01-28T15:16:50.046709",
+      "failure_category": null
+    },
+    {
+      "id": "3d979333",
+      "test_case_id": "149c7bd7",
+      "prompt_version_id": "init001",
+      "input_text": "I need to return an item I bought 45 days ago",
+      "expected_output": "Unfortunately, our return policy only allows returns within 30 days of purchase. However, we may be able to offer store credit. Please contact customer support at 1-800-123-4567 to discuss your options.",
+      "actual_output": "To assist you with the return, please check our return policy, which typically allows returns within 30 to 60 days from the date of purchase, depending on the item and category. Since you mentioned it's been 45 days, you may still be eligible for a return.\n\nPlease provide the order number or the item details, and I can guide you through the return process!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 4.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 6.0
+        },
+        "aggregate_score": 6.67,
+        "passed": false,
+        "details": {
+          "failure_category": "factual_error",
+          "raw_response": {
+            "correctness": 4,
+            "format_compliance": 10,
+            "behavior_alignment": 6,
+            "aggregate_score": 6.67,
+            "passed": false,
+            "failure_category": "factual_error",
+            "feedback": "The actual output incorrectly states that returns are allowed within 30 to 60 days, which contradicts the expected output's information about the 30-day return policy. The format is correct, but the behavior is somewhat misaligned as it does not clearly communicate the limitations of the return policy."
+          }
+        },
+        "feedback": "The actual output incorrectly states that returns are allowed within 30 to 60 days, which contradicts the expected output's information about the 30-day return policy. The format is correct, but the behavior is somewhat misaligned as it does not clearly communicate the limitations of the return policy."
+      },
+      "passed": false,
+      "latency_ms": 2049,
+      "tokens_used": 125,
+      "timestamp": "2026-01-28T15:16:53.938928",
+      "failure_category": null
+    },
+    {
+      "id": "ff70a7d2",
+      "test_case_id": "3bc3284a",
+      "prompt_version_id": "init001",
+      "input_text": "I need to return an item I bought 45 days ago",
+      "expected_output": "Unfortunately, our return policy only allows returns within 30 days. Please contact support to discuss options.",
+      "actual_output": "To assist you with your return, please check our return policy, which typically allows returns within 30 to 60 days of purchase, depending on the item. Since you mentioned it's been 45 days, you may still be eligible for a return. \n\nPlease visit our website and navigate to the \"Returns\" section for specific instructions on how to process your return. If you need further assistance, feel free to provide your order number or any other details, and I'll be happy to help!",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 3.0,
+          "format_compliance": 10.0,
+          "behavior_alignment": 6.0
+        },
+        "aggregate_score": 6.33,
+        "passed": false,
+        "details": {
+          "failure_category": "factual_error",
+          "raw_response": {
+            "correctness": 3,
+            "format_compliance": 10,
+            "behavior_alignment": 6,
+            "aggregate_score": 6.33,
+            "passed": false,
+            "failure_category": "factual_error",
+            "feedback": "The actual output incorrectly states that the return policy allows returns within 30 to 60 days, which contradicts the expected output. While the format is correct and the tone is helpful, the factual inaccuracy significantly impacts the overall evaluation."
+          }
+        },
+        "feedback": "The actual output incorrectly states that the return policy allows returns within 30 to 60 days, which contradicts the expected output. While the format is correct and the tone is helpful, the factual inaccuracy significantly impacts the overall evaluation."
+      },
+      "passed": false,
+      "latency_ms": 3476,
+      "tokens_used": 148,
+      "timestamp": "2026-01-28T15:16:57.728065",
+      "failure_category": null
+    }
+  ]
+}

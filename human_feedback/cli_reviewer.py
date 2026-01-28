@@ -9,7 +9,7 @@ from rich.prompt import Prompt, Confirm
 from rich.markdown import Markdown
 from rich.syntax import Syntax
 
-from core.models import EvaluationResult, HumanAnnotation, EvalRunSummary
+from core.models import EvaluationResult, HumanAnnotation, EvalRunSummary, RefinementFeedback
 from config import settings
 
 console = Console()
@@ -306,3 +306,251 @@ class HumanReviewer:
         
         console.print(f"\n[green]✓ Completed {len(annotations)} quick reviews[/green]")
         return annotations
+
+    def detailed_review(
+        self,
+        eval_results: list[EvaluationResult],
+        run_id: str,
+    ) -> tuple[list[HumanAnnotation], Optional[RefinementFeedback]]:
+        """
+        Detailed review mode with NLP feedback for each failure.
+        Allows natural language critique, ideal output, and refinement instructions.
+        
+        Returns:
+            Tuple of (annotations, refinement_feedback)
+        """
+        failures = [r for r in eval_results if not r.passed]
+        
+        if not failures:
+            console.print("[green]✓ No failures to review![/green]")
+            return [], None
+        
+        console.print(f"\n[bold]Detailed Review Mode: {len(failures)} failures[/bold]")
+        console.print("[dim]Provide detailed NLP feedback for each failure.[/dim]")
+        console.print("[dim]Your feedback will be used to refine the prompt.[/dim]\n")
+        
+        if not Confirm.ask("Start detailed review?"):
+            return [], None
+        
+        annotations = []
+        
+        try:
+            for i, failure in enumerate(failures, 1):
+                # Display the failure
+                self.display_failure(failure, i, len(failures))
+                
+                # Collect detailed feedback
+                annotation = self._collect_detailed_feedback(failure)
+                annotations.append(annotation)
+                
+                # Save immediately
+                self._save_annotation(annotation, run_id)
+                
+                console.print(f"\n[green]✓ Saved detailed feedback for {failure.test_case_id}[/green]")
+                
+                # Continue prompt
+                if i < len(failures):
+                    if not Confirm.ask("\nContinue to next failure?", default=True):
+                        console.print(f"\n[yellow]Stopped after {i}/{len(failures)} reviews[/yellow]")
+                        break
+        
+        except KeyboardInterrupt:
+            console.print(f"\n\n[yellow]Review interrupted. Saved {len(annotations)} annotations.[/yellow]")
+        
+        # Collect overall refinement feedback
+        console.print("\n" + "═" * 50)
+        console.print("[bold]Overall Refinement Feedback[/bold]")
+        console.print("[dim]Provide general instructions for the prompt optimizer.[/dim]\n")
+        
+        refinement_feedback = self._collect_refinement_feedback(run_id, annotations)
+        
+        # Summary
+        self._display_detailed_review_summary(annotations, refinement_feedback)
+        
+        return annotations, refinement_feedback
+    
+    def _collect_detailed_feedback(self, result: EvaluationResult) -> HumanAnnotation:
+        """Collect detailed NLP feedback for a single failure."""
+        console.print("\n[bold]─── Your Detailed Feedback ───[/bold]\n")
+        
+        # Rating
+        console.print("[dim]Rate the output quality:[/dim]")
+        rating = Prompt.ask(
+            "Rating (good/bad/neutral)",
+            choices=["good", "bad", "neutral"],
+            default="bad"
+        )
+        
+        # Category selection
+        console.print("\n[dim]Failure categories:[/dim]")
+        for i, cat in enumerate(self.FAILURE_CATEGORIES, 1):
+            console.print(f"  {i}. {cat}")
+        
+        auto_category = result.grader_result.details.get("failure_category", "other")
+        auto_idx = self.FAILURE_CATEGORIES.index(auto_category) + 1 if auto_category in self.FAILURE_CATEGORIES else 6
+        
+        cat_input = Prompt.ask(
+            "Category (number or name)",
+            default=str(auto_idx)
+        )
+        
+        try:
+            cat_idx = int(cat_input) - 1
+            failure_category = self.FAILURE_CATEGORIES[cat_idx]
+        except (ValueError, IndexError):
+            failure_category = cat_input if cat_input in self.FAILURE_CATEGORIES else "other"
+        
+        # Detailed NLP critique
+        console.print("\n[bold cyan]Describe what's wrong with this output (NLP feedback):[/bold cyan]")
+        console.print("[dim]Be specific about the issues - this will help the optimizer understand the problem.[/dim]")
+        critique = Prompt.ask("Critique", default="")
+        
+        # Ideal output (optional)
+        console.print("\n[bold green]What should the ideal output be? (optional)[/bold green]")
+        console.print("[dim]Leave empty to skip, or provide what you expected.[/dim]")
+        ideal_output = Prompt.ask("Ideal output", default="")
+        
+        # Refinement instruction
+        console.print("\n[bold yellow]How should the prompt be changed to fix this?[/bold yellow]")
+        console.print("[dim]e.g., 'Add instruction to mention return policy time limits'[/dim]")
+        refinement_instruction = Prompt.ask("Refinement instruction", default="")
+        
+        # Suggested fix (more specific)
+        console.print("\n[bold magenta]Any specific text to add to the prompt?[/bold magenta]")
+        console.print("[dim]e.g., 'Always mention the 30-day return window'[/dim]")
+        suggested_fix = Prompt.ask("Suggested prompt addition", default="")
+        
+        return HumanAnnotation(
+            eval_result_id=result.id,
+            rating=rating,
+            failure_category=failure_category,
+            critique=critique,
+            ideal_output=ideal_output,
+            refinement_instruction=refinement_instruction,
+            suggested_fix=suggested_fix,
+        )
+    
+    def _collect_refinement_feedback(
+        self, 
+        run_id: str, 
+        annotations: list[HumanAnnotation]
+    ) -> RefinementFeedback:
+        """Collect overall refinement feedback after reviewing all failures."""
+        
+        if not Confirm.ask("Provide overall refinement feedback?", default=True):
+            return RefinementFeedback(run_id=run_id)
+        
+        console.print("\n[bold]General Instructions for Prompt Refinement:[/bold]")
+        console.print("[dim]What overall changes should be made to improve the prompt?[/dim]")
+        general_instructions = Prompt.ask("General instructions", default="")
+        
+        console.print("\n[bold]Tone/Style Feedback:[/bold]")
+        console.print("[dim]Should the responses be more formal, friendly, concise, detailed?[/dim]")
+        tone_feedback = Prompt.ask("Tone feedback", default="")
+        
+        console.print("\n[bold]Format Feedback:[/bold]")
+        console.print("[dim]Any changes to how responses should be structured?[/dim]")
+        format_feedback = Prompt.ask("Format feedback", default="")
+        
+        console.print("\n[bold]Content Accuracy Feedback:[/bold]")
+        console.print("[dim]What factual information is missing or incorrect?[/dim]")
+        content_feedback = Prompt.ask("Content feedback", default="")
+        
+        console.print("\n[bold]Priority Fixes (comma-separated):[/bold]")
+        console.print("[dim]List the most important things to fix, in order of priority.[/dim]")
+        priority_input = Prompt.ask("Priority fixes", default="")
+        priority_fixes = [p.strip() for p in priority_input.split(",") if p.strip()]
+        
+        console.print("\n[bold]Additional Context:[/bold]")
+        console.print("[dim]Any other information that would help improve the prompt?[/dim]")
+        additional_context = Prompt.ask("Additional context", default="")
+        
+        feedback = RefinementFeedback(
+            run_id=run_id,
+            general_instructions=general_instructions,
+            tone_feedback=tone_feedback,
+            format_feedback=format_feedback,
+            content_feedback=content_feedback,
+            priority_fixes=priority_fixes,
+            additional_context=additional_context,
+        )
+        
+        # Save refinement feedback
+        self._save_refinement_feedback(feedback, run_id)
+        
+        return feedback
+    
+    def _save_refinement_feedback(self, feedback: RefinementFeedback, run_id: str):
+        """Save refinement feedback to disk."""
+        file_path = self.annotations_dir / f"{run_id}_refinement_feedback.json"
+        with open(file_path, "w") as f:
+            json.dump(feedback.model_dump(), f, indent=2)
+        console.print(f"\n[green]✓ Saved refinement feedback[/green]")
+    
+    def load_refinement_feedback(self, run_id: str) -> Optional[RefinementFeedback]:
+        """Load refinement feedback for a run."""
+        file_path = self.annotations_dir / f"{run_id}_refinement_feedback.json"
+        if not file_path.exists():
+            return None
+        with open(file_path, "r") as f:
+            return RefinementFeedback(**json.load(f))
+    
+    def _display_detailed_review_summary(
+        self, 
+        annotations: list[HumanAnnotation],
+        refinement_feedback: Optional[RefinementFeedback]
+    ):
+        """Display summary of detailed review session."""
+        if not annotations:
+            return
+        
+        console.print("\n" + "═" * 50)
+        console.print("[bold]Detailed Review Summary[/bold]\n")
+        
+        # Rating breakdown
+        ratings = {}
+        categories = {}
+        
+        for ann in annotations:
+            ratings[ann.rating] = ratings.get(ann.rating, 0) + 1
+            categories[ann.failure_category] = categories.get(ann.failure_category, 0) + 1
+        
+        # Ratings table
+        table = Table(title="Ratings")
+        table.add_column("Rating", style="cyan")
+        table.add_column("Count", style="yellow")
+        for rating, count in sorted(ratings.items()):
+            table.add_row(rating, str(count))
+        console.print(table)
+        
+        # Categories table
+        table = Table(title="Failure Categories")
+        table.add_column("Category", style="cyan")
+        table.add_column("Count", style="yellow")
+        for cat, count in sorted(categories.items(), key=lambda x: x[1], reverse=True):
+            table.add_row(cat, str(count))
+        console.print(table)
+        
+        # Critiques
+        critiques = [a.critique for a in annotations if a.critique]
+        if critiques:
+            console.print("\n[bold]Critiques Provided:[/bold]")
+            for i, critique in enumerate(critiques, 1):
+                console.print(f"  {i}. {critique[:100]}{'...' if len(critique) > 100 else ''}")
+        
+        # Refinement instructions
+        instructions = [a.refinement_instruction for a in annotations if a.refinement_instruction]
+        if instructions:
+            console.print("\n[bold]Refinement Instructions:[/bold]")
+            for i, inst in enumerate(instructions, 1):
+                console.print(f"  {i}. {inst}")
+        
+        # Overall feedback
+        if refinement_feedback and refinement_feedback.general_instructions:
+            console.print("\n[bold]Overall Refinement Direction:[/bold]")
+            console.print(f"  {refinement_feedback.general_instructions}")
+        
+        if refinement_feedback and refinement_feedback.priority_fixes:
+            console.print("\n[bold]Priority Fixes:[/bold]")
+            for i, fix in enumerate(refinement_feedback.priority_fixes, 1):
+                console.print(f"  {i}. {fix}")

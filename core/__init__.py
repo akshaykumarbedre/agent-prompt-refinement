@@ -7,6 +7,7 @@ from .models import (
     EvalRunSummary,
     HumanAnnotation,
     FailureCategory,
+    RefinementFeedback,
 )
 from .prompt_manager import PromptManager
 from .test_case_manager import TestCaseManager
@@ -22,6 +23,7 @@ __all__ = [
     "EvalRunSummary",
     "HumanAnnotation",
     "FailureCategory",
+    "RefinementFeedback",
     "PromptManager",
     "TestCaseManager",
     "AgentInvoker",

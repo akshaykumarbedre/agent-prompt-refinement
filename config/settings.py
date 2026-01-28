@@ -25,7 +25,7 @@ class Settings:
         
         # OpenAI settings for GPT-4 Judge
         self.OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
-        self.JUDGE_MODEL = "gpt-4"
+        self.JUDGE_MODEL = os.getenv("JUDGE_MODEL", "gpt-4o-mini")  # Use gpt-4o-mini for JSON mode support
         
         # Agent API settings
         self.AGENT_API_URL = os.getenv("AGENT_API_URL", "http://localhost:8000/api/agent/invoke")

@@ -345,7 +345,8 @@ def eval_show(run_id):
 @cli.command("review")
 @click.option("--run-id", required=True, help="Evaluation run ID to review")
 @click.option("--quick", is_flag=True, help="Quick review mode (just good/bad)")
-def review(run_id, quick):
+@click.option("--detailed", is_flag=True, help="Detailed review with NLP feedback")
+def review(run_id, quick, detailed):
     """Review all failures from an evaluation run."""
     controller = IterationController()
     reviewer = HumanReviewer()
@@ -357,6 +358,11 @@ def review(run_id, quick):
     
     if quick:
         reviewer.quick_review(summary.results, run_id)
+    elif detailed:
+        annotations, refinement_feedback = reviewer.detailed_review(summary.results, run_id)
+        console.print(f"\n[green]✓[/green] Detailed review complete with {len(annotations)} annotations")
+        if refinement_feedback and refinement_feedback.general_instructions:
+            console.print("[dim]Refinement feedback saved for optimization.[/dim]")
     else:
         reviewer.review_all_failures(summary.results, run_id)
 
@@ -390,6 +396,11 @@ def optimize(from_version, run_id, remote_prompt_id):
     # Load annotations
     annotations = reviewer.load_annotations(run_id)
     
+    # Load refinement feedback (from detailed review)
+    refinement_feedback = reviewer.load_refinement_feedback(run_id)
+    if refinement_feedback:
+        console.print(f"[cyan]Found refinement feedback with {len(refinement_feedback.priority_issues)} priority issues[/cyan]")
+    
     # Analyze failures
     analysis = analyzer.analyze_failures(summary.results, annotations)
     
@@ -398,6 +409,7 @@ def optimize(from_version, run_id, remote_prompt_id):
         current_version=prompt,
         failure_analysis=analysis,
         human_annotations=annotations,
+        refinement_feedback=refinement_feedback,
     )
     
     console.print(f"\n[green]✓[/green] Created optimized prompt v{new_version.version_number}")

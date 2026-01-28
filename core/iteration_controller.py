@@ -10,7 +10,7 @@ from rich.table import Table
 
 from .models import (
     TestCase, PromptVersion, EvaluationResult, 
-    EvalRunSummary, GraderResult, HumanAnnotation
+    EvalRunSummary, GraderResult, HumanAnnotation, RefinementFeedback
 )
 from .prompt_manager import PromptManager
 from .test_case_manager import TestCaseManager
@@ -251,12 +251,15 @@ class IterationController:
         
         # 3. HUMAN REVIEW: Review all failures
         annotations = []
+        refinement_feedback = None
         if not skip_human_review:
             console.print("\n[bold]Phase 3: HUMAN REVIEW[/bold]")
             annotations = self.human_reviewer.review_all_failures(
                 eval_results=summary.results,
                 run_id=summary.run_id,
             )
+            # Check for refinement feedback file
+            refinement_feedback = self.human_reviewer.load_refinement_feedback(summary.run_id)
         
         # 4. IMPROVE: Generate optimized prompt
         console.print("\n[bold]Phase 4: IMPROVE[/bold]")
@@ -264,6 +267,7 @@ class IterationController:
             current_version=current_prompt,
             failure_analysis=analysis,
             human_annotations=annotations if annotations else None,
+            refinement_feedback=refinement_feedback,
         )
         
         return new_prompt, summary

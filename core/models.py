@@ -92,9 +92,24 @@ class HumanAnnotation(BaseModel):
     id: str = Field(default_factory=generate_id)
     eval_result_id: str
     rating: str  # good, bad, neutral
-    critique: str = ""  # Detailed feedback
+    critique: str = ""  # Detailed NLP feedback on what's wrong
     failure_category: str = ""  # Categorized failure type
     suggested_fix: str = ""  # Human's suggested improvement
+    refinement_instruction: str = ""  # Specific instruction for prompt refinement
+    ideal_output: str = ""  # What the output should have been (optional)
+    timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
+
+
+class RefinementFeedback(BaseModel):
+    """Overall refinement feedback for the optimization process."""
+    id: str = Field(default_factory=generate_id)
+    run_id: str
+    general_instructions: str = ""  # Overall guidance for refinement
+    tone_feedback: str = ""  # Feedback on tone/style
+    format_feedback: str = ""  # Feedback on output format
+    content_feedback: str = ""  # Feedback on content accuracy
+    priority_fixes: list[str] = Field(default_factory=list)  # Ordered list of things to fix
+    additional_context: str = ""  # Any extra context for the optimizer
     timestamp: str = Field(default_factory=lambda: datetime.now().isoformat())
 
 

@@ -1,0 +1,305 @@
+{
+  "run_id": "04893032",
+  "prompt_version_id": "29b7c097",
+  "total_cases": 10,
+  "passed": 0,
+  "failed": 10,
+  "pass_rate": 0.0,
+  "avg_score": 0.0,
+  "failure_breakdown": {
+    "other": 10
+  },
+  "timestamp": "2026-01-28T15:08:40.637548",
+  "results": [
+    {
+      "id": "3b24d2d6",
+      "test_case_id": "tc_001",
+      "prompt_version_id": "29b7c097",
+      "input_text": "What are your business hours?",
+      "expected_output": "We are open Monday to Friday, 9 AM to 5 PM EST.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2625,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:36.077647",
+      "failure_category": null
+    },
+    {
+      "id": "84ac25bb",
+      "test_case_id": "tc_002",
+      "prompt_version_id": "29b7c097",
+      "input_text": "How do I cancel my order?",
+      "expected_output": "To cancel your order, please contact our customer support at 1-800-123-4567 within 24 hours of placing the order.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2715,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:37.375239",
+      "failure_category": null
+    },
+    {
+      "id": "8bb938f0",
+      "test_case_id": "tc_003",
+      "prompt_version_id": "29b7c097",
+      "input_text": "What is your return policy?",
+      "expected_output": "You can return any item within 30 days of purchase for a full refund. Items must be in original packaging.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2741,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:37.817541",
+      "failure_category": null
+    },
+    {
+      "id": "1ad168ff",
+      "test_case_id": "tc_004",
+      "prompt_version_id": "29b7c097",
+      "input_text": "Do you ship internationally?",
+      "expected_output": "Yes, we ship to over 50 countries. International shipping takes 7-14 business days.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2749,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:38.196144",
+      "failure_category": null
+    },
+    {
+      "id": "c033a7b6",
+      "test_case_id": "tc_005",
+      "prompt_version_id": "29b7c097",
+      "input_text": "How do I track my order?",
+      "expected_output": "You can track your order using the tracking number sent to your email, or log into your account and view order status.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2757,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:38.632828",
+      "failure_category": null
+    },
+    {
+      "id": "e3b88401",
+      "test_case_id": "tc_006",
+      "prompt_version_id": "29b7c097",
+      "input_text": "What payment methods do you accept?",
+      "expected_output": "We accept Visa, MasterCard, American Express, PayPal, and Apple Pay.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2683,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:39.039598",
+      "failure_category": null
+    },
+    {
+      "id": "a9e2fda0",
+      "test_case_id": "tc_007",
+      "prompt_version_id": "29b7c097",
+      "input_text": "Can I change my shipping address after ordering?",
+      "expected_output": "You can change your shipping address within 2 hours of placing your order by contacting customer support.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2799,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:39.451028",
+      "failure_category": null
+    },
+    {
+      "id": "3b2a45c9",
+      "test_case_id": "tc_008",
+      "prompt_version_id": "29b7c097",
+      "input_text": "What if my item arrives damaged?",
+      "expected_output": "If your item arrives damaged, please contact us within 48 hours with photos of the damage. We will send a replacement or issue a full refund.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2677,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:39.834080",
+      "failure_category": null
+    },
+    {
+      "id": "6c3fc87f",
+      "test_case_id": "tc_009",
+      "prompt_version_id": "29b7c097",
+      "input_text": "Do you offer gift wrapping?",
+      "expected_output": "Yes, we offer gift wrapping for $5 per item. You can select this option at checkout.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2634,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:40.222040",
+      "failure_category": null
+    },
+    {
+      "id": "6be332a7",
+      "test_case_id": "tc_010",
+      "prompt_version_id": "29b7c097",
+      "input_text": "How do I apply a promo code?",
+      "expected_output": "Enter your promo code in the 'Discount Code' field at checkout and click 'Apply'. The discount will be reflected in your total.",
+      "actual_output": "",
+      "grader_result": {
+        "grader_name": "gpt4_judge",
+        "grader_type": "llm_judge",
+        "scores": {
+          "correctness": 0.0,
+          "format_compliance": 0.0,
+          "behavior_alignment": 0.0
+        },
+        "aggregate_score": 0.0,
+        "passed": false,
+        "details": {
+          "error": "Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}",
+          "failure_category": "other"
+        },
+        "feedback": "Judge evaluation failed: Error code: 400 - {'error': {'message': \"Invalid parameter: 'response_format' of type 'json_object' is not supported with this model.\", 'type': 'invalid_request_error', 'param': 'response_format', 'code': None}}"
+      },
+      "passed": false,
+      "latency_ms": 2695,
+      "tokens_used": 0,
+      "timestamp": "2026-01-28T15:08:40.628986",
+      "failure_category": null
+    }
+  ]
+}
