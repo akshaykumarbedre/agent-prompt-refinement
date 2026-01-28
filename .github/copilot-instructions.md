@@ -27,6 +27,13 @@ class TestCase(BaseModel):
     input_text: str
     expected_output: str
     tags: list[str] = Field(default_factory=list)
+
+class RefinementFeedback(BaseModel):
+    run_id: str
+    general_instructions: str
+    priority_issues: list[str] = Field(default_factory=list)
+    style_guidance: str = ""
+    constraints: list[str] = Field(default_factory=list)
 ```
 
 ### JSONL Storage Pattern
@@ -47,6 +54,12 @@ Six categories defined in `refinement/failure_analyzer.py`, each with a fix stra
 - `verbosity` → `add_length_constraints`
 - `other` → `manual_review`
 
+### Human Feedback Modes
+Three review modes in `human_feedback/cli_reviewer.py`:
+- **Quick review** (`--quick`): Simple g/b/s ratings
+- **Standard review**: Rating + notes per failure
+- **Detailed review** (`--detailed`): Full NLP feedback with `RefinementFeedback` for overall guidance
+
 ## Developer Workflow
 
 ### Running the Tool
@@ -63,8 +76,10 @@ python main.py test add --input "question" --expected "answer"
 # Run evaluation
 python main.py eval run --prompt-version 1
 
-# Review failures interactively
-python main.py review --run-id <8-char-id>
+# Review failures interactively (choose mode)
+python main.py review --run-id <8-char-id>           # Standard
+python main.py review --run-id <8-char-id> --quick   # Quick g/b/s
+python main.py review --run-id <8-char-id> --detailed # Full NLP
 
 # Full automated loop (skips human review)
 python main.py loop start --skip-review
